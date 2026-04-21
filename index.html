@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordi Fabregat — Gameplay Programmer & Technical Designer</title>
+<meta name="description" content="Junior gameplay programmer and technical designer based in Barcelona. Unity, C#, and interaction design. Recent work includes Alphinland, a narrative walking sim, and research at UPF's Full-Body Interaction Lab.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:         #f6f2ec;
+    --bg-elev:   #fbf8f3;
+    --ink:        #1b1a19;
+    --ink-soft:  #4a4643;
+    --ink-muted: #7a7470;
+    --rule:       #d8d1c6;
+    --rule-soft: #e6e0d5;
+    --accent:     #a43f4e;
+    --accent-soft:#c86b78;
+
+    --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans:  "General Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --max: 1120px;
+    --gutter: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color .2s ease, border-color .2s ease;
+  }
+  a:hover { color: var(--accent); border-bottom-color: var(--accent-soft); }
+
+  /* Layout */
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  section { padding-block: clamp(3.5rem, 8vh, 6rem); }
+  hr.rule { border: 0; height: 1px; background: var(--rule); margin-block: 0; }
+
+  /* Navigation — sparse, editorial */
+  nav.top {
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s ease;
+    z-index: 50;
+  }
+  nav.top.scrolled { border-bottom-color: var(--rule); }
+  nav.top .inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  nav.top .mark {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    border: 0;
+  }
+  nav.top ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+  }
+  nav.top ul a { border: 0; color: inherit; }
+  nav.top ul a:hover { color: var(--accent); }
+  @media (max-width: 600px) {
+    nav.top ul { display: none; }
+  }
+
+  /* Hero */
+  .hero { padding-top: clamp(3rem, 9vh, 6rem); padding-bottom: clamp(4rem, 10vh, 7rem); }
+  .hero .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 900px) {
+    .hero .grid {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 1.2fr);
+      gap: 4rem;
+      align-items: end;
+    }
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 .alt {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .hero .tag {
+    font-size: 1.125rem;
+    color: var(--ink-soft);
+    max-width: 38ch;
+    font-weight: 400;
+  }
+  .hero .meta {
+    font-size: 0.875rem;
+    color: var(--ink-muted);
+    display: grid;
+    gap: 0.75rem;
+  }
+  .hero .meta .label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+  .hero .meta .value { color: var(--ink); font-weight: 500; }
+  .hero .meta .row { display: flex; flex-direction: column; }
+
+  /* About */
+  .about .body {
+    font-family: var(--serif);
+    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    line-height: 1.4;
+    color: var(--ink);
+    max-width: 32ch;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+  .about .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 900px) {
+    .about .grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr);
+      gap: 4rem;
+    }
+  }
+  .about .detail {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    line-height: 1.65;
+  }
+  .about .detail p + p { margin-top: 1rem; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    gap: 1rem;
+  }
+  .section-head .eyebrow {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+  .section-head .count {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+  }
+
+  /* Featured project */
+  .featured {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  @media (min-width: 900px) {
+    .featured {
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+  }
+  .featured .visual {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .featured .visual .placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 2rem;
+  }
+  .featured .visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .featured .copy {
+    padding-top: 0.5rem;
+  }
+  .featured h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+  .featured .subhead {
+    font-size: 0.825rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+  }
+  .featured .desc {
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    line-height: 1.65;
+  }
+  .featured .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.75rem;
+  }
+  .featured .tags span {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+    border-radius: 100px;
+  }
+  .featured .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .featured .links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .featured .links a .arrow {
+    font-family: var(--serif);
+    font-style: italic;
+    transition: transform .2s ease;
+    display: inline-block;
+  }
+  .featured .links a:hover .arrow {
+    transform: translateX(2px);
+  }
+
+  /* Other projects grid */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-top: 1rem;
+  }
+  @media (min-width: 700px) {
+    .projects-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  .project-card {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+  }
+  .project-card .visual {
+    aspect-ratio: 4 / 3;
+    background: var(--bg-elev);
+    border: 1px solid var(--rule);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .project-card .visual .placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .project-card .visual img { width: 100%; height: 100%; object-fit: cover; }
+  .project-card h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.15;
+    margin-bottom: 0.35rem;
+    letter-spacing: -0.01em;
+  }
+  .project-card .meta {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.85rem;
+    font-weight: 500;
+  }
+  .project-card .blurb {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .project-card .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  /* Experience section */
+  .experience .item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  @media (min-width: 700px) {
+    .experience .item {
+      grid-template-columns: 180px 1fr;
+      gap: 3rem;
+      padding-block: 1.75rem;
+    }
+  }
+  .experience .item:last-child { border-bottom: 1px solid var(--rule); }
+  .experience .date {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-muted);
+    padding-top: 0.35rem;
+  }
+  .experience h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+  .experience .sub {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+  }
+  .experience .desc {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 62ch;
+  }
+
+  /* Contact */
+  .contact {
+    padding-block: clamp(4rem, 10vh, 8rem);
+    border-top: 1px solid var(--rule);
+  }
+  .contact h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    max-width: 14ch;
+  }
+  .contact h2 em { color: var(--accent); font-variation-settings: "opsz" 144; }
+  .contact .cta {
+    display: inline-block;
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-style: italic;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 0.2rem;
+    transition: color .2s ease, border-color .2s ease, transform .3s ease;
+  }
+  .contact .cta:hover { color: var(--accent); border-bottom-color: var(--accent); transform: translateX(4px); }
+  .contact .links {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    font-size: 0.925rem;
+    color: var(--ink-soft);
+  }
+  .contact .links a { color: inherit; border-bottom-color: var(--rule); }
+  .contact .links a:hover { color: var(--accent); }
+
+  /* Footer */
+  footer.colophon {
+    padding: 2rem 0 3rem;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /* Entrance animation */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .rise { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .rise-1 { animation-delay: 0.05s; }
+  .rise-2 { animation-delay: 0.18s; }
+  .rise-3 { animation-delay: 0.31s; }
+  .rise-4 { animation-delay: 0.44s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rise { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Focus states for accessibility */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top" id="topnav">
+  <div class="inner">
+    <a href="#" class="mark">Jordi&nbsp;Fabregat</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="grid">
+    <div>
+      <h1 class="rise rise-1">
+        Games made<br>
+        with <span class="alt">intent.</span>
+      </h1>
+      <p class="tag rise rise-2">
+        Gameplay programmer and technical designer based in Barcelona. Unity, C#, and systems that make the design of a thing legible in how the player actually plays it.
+      </p>
+    </div>
+    <aside class="meta rise rise-3">
+      <div class="row">
+        <span class="label">Based in</span>
+        <span class="value">Barcelona, Spain</span>
+      </div>
+      <div class="row">
+        <span class="label">Currently</span>
+        <span class="value">Final-year CS at UPF</span>
+      </div>
+      <div class="row">
+        <span class="label">Open to</span>
+        <span class="value">Junior roles, remote or relocation</span>
+      </div>
+      <div class="row" style="margin-top: 0.5rem;">
+        <a href="Jordi_Fabregat_CV.pdf" download>Download CV →</a>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<hr class="rule">
+
+<section class="about wrap" id="about">
+  <div class="grid">
+    <div>
+      <p class="section-head eyebrow">About</p>
+      <p class="body">I design and build games about specific human things — grief, cooperation, the friction of aging — and the systems that make those feelings land.</p>
+    </div>
+    <div class="detail">
+      <p>Final-year Computer Science student at Universitat Pompeu Fabra, specialising in Video Game Development and Interaction. Three shipped Unity/C# game projects across narrative, mixed-reality, and engine-development contexts.</p>
+      <p>Currently working as a research assistant at UPF's Full-Body Interaction Lab under Prof. Narcís Parés, contributing to published mixed-reality systems used in HCI studies with neurodivergent children.</p>
+      <p>Looking for a junior role in gameplay programming or technical design where I can contribute to production and grow toward design leadership.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap" id="work">
+  <div class="section-head">
+    <span class="eyebrow">Selected Work</span>
+    <span class="count"><em>three projects</em></span>
+  </div>
+
+  <!-- Featured: Alphinland -->
+  <article class="featured">
+    <div class="visual">
+      <img src="images/alphinland-hero.jpg" alt="Alphinland — Constance's house interior">
+    </div>
+    <div class="copy">
+      <p class="subhead">Featured · Solo project · 2025</p>
+      <h3>Alphinland</h3>
+      <p class="desc">A first-person narrative walking sim about grief, memory, and the worlds we build to survive them. Built solo in Unity over one month, inspired by Margaret Atwood's short story. Features a three-tier interaction system inspired by Resident Evil, a dual-world transition with a custom shader, and a diegetic grief meter that gates story progression without HUD explanation.</p>
+      <div class="tags">
+        <span>Unity</span>
+        <span>C#</span>
+        <span>Narrative design</span>
+        <span>Custom shader</span>
+        <span>Vertical slice</span>
+      </div>
+      <div class="links">
+        <a href="https://realsria.itch.io/alphinland"><span>Play on itch.io</span><span class="arrow">→</span></a>
+        <a href="https://github.com/JordiFabregat01/Alphinland"><span>Source & docs</span><span class="arrow">→</span></a>
+        <a href="https://github.com/JordiFabregat01/Alphinland/blob/main/docs/Alphinland_Design_Summary.pdf"><span>Design summary</span><span class="arrow">→</span></a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Secondary projects grid -->
+  <div class="projects-grid" style="margin-top: 5rem;">
+
+    <article class="project-card">
+      <div class="visual">
+        <img src="images/dual-forts.jpg" alt="Alphinland — Constance's house interior">
+      </div>
+      <h4>Dual Forts</h4>
+      <p class="meta">Team · Mixed Reality · 2024</p>
+      <p class="blurb">Cooperative tower defense for a 6×6 m projected mixed-reality playspace with HTC Vive trackers. Resource gathering is mechanically impossible alone — both players must act simultaneously. Led the balancing pass across multiple playtests; this project led to my subsequent research role at UPF's Full-Body Interaction Lab.</p>
+      <div class="links">
+        <a href="https://realsria.itch.io/dual-forts">Project page →</a>
+      </div>
+    </article>
+
+    <article class="project-card">
+      <div class="visual">
+        <img src="images/device-bound.jpg" alt="Alphinland — Constance's house interior">
+      </div>
+      <h4>Device Bound</h4>
+      <p class="meta">Solo · C++ · 2024</p>
+      <p class="blurb">A first-person puzzle-platformer built solo on a partial C++ engine framework. Throw a ball, teleport to where it lands; save and rewind your position for experimentation. Completed renderer and culling systems on top of the course-provided engine. Published on the course page as an exemplar for later years.</p>
+      <div class="links">
+        <a href="https://realsria.itch.io/device-bound">Project page →</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="wrap experience" id="experience">
+  <div class="section-head">
+    <span class="eyebrow">Experience</span>
+  </div>
+
+  <div class="item">
+    <div class="date">Sep 2025 – Feb 2026</div>
+    <div>
+      <h4>Research &amp; Development Assistant</h4>
+      <p class="sub">Full-Body Interaction Lab · Universitat Pompeu Fabra</p>
+      <p class="desc">Mixed-reality Unity development for HCI research with neurodivergent children, under Prof. Narcís Parés. Rebuilt and iterated on the Unity codebase for <em>DragonIce</em> and <em>Lands of Fog</em> — full-body mixed-reality experiences projected onto a 6×6 m floor playspace with HTC Vive trackers. Resolved stability and logging issues that enabled the research team to recover clean behavioural data from play sessions.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">2022 – Jun 2026</div>
+    <div>
+      <h4>BSc Computer Science</h4>
+      <p class="sub">Universitat Pompeu Fabra — Specialisation: Video Game Development &amp; Interaction</p>
+      <p class="desc">Game-related coursework: Video Game Engine Development, Interactive Systems, Human-Computer Interaction, Narrative &amp; Videogames.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="date">Sep 2022 · 2023 · 2024</div>
+    <div>
+      <h4>Warehouse Operative (seasonal)</h4>
+      <p class="sub">ADW Diamond Solutions S.L.</p>
+      <p class="desc">Three consecutive seasonal stints preparing and adapting client orders under tight delivery deadlines.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact wrap" id="contact">
+  <h2><em>Contact.</em></h2>
+  <a class="cta" href="mailto:jordifabregat57@gmail.com">jordifabregat57@gmail.com →</a>
+  <div class="links">
+    <a href="https://github.com/JordiFabregat01">GitHub</a>
+    <a href="https://realsria.itch.io">itch.io</a>
+    <a href="#">LinkedIn</a>
+    <a href="Jordi_Fabregat_CV.pdf" download>CV (PDF)</a>
+  </div>
+</section>
+
+<footer class="colophon wrap">
+  <span>© 2026 Jordi Fabregat</span>
+  <span>Built in plain HTML/CSS · hosted on GitHub Pages</span>
+</footer>
+
+<script>
+  // Sticky nav subtle border on scroll
+  const nav = document.getElementById('topnav');
+  const onScroll = () => {
+    if (window.scrollY > 12) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
