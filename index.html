@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jordi Fabregat — Gameplay Programmer & Technical Designer</title>
-<meta name="description" content="Junior gameplay programmer and technical designer based in Barcelona. Unity, C#, and interaction design. Recent work includes Alphinland, a narrative walking sim, and research at UPF's Full-Body Interaction Lab.">
-
+<meta name="description" content="Gameplay programmer and technical designer based in Barcelona. Unity, C#, and C++ — gameplay systems, interaction design, and shipped games including Alphinland, plus mixed-reality engineering at UPF's Full-Body Interaction Lab.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
-
 <style>
   :root {
     --bg:         #f6f2ec;
@@ -24,14 +21,11 @@
     --rule-soft: #e6e0d5;
     --accent:     #a43f4e;
     --accent-soft:#c86b78;
-
     --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
     --sans:  "General Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
     --max: 1120px;
     --gutter: clamp(1.5rem, 4vw, 3.5rem);
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -44,9 +38,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
-
   img { max-width: 100%; display: block; }
-
   a {
     color: var(--ink);
     text-decoration: none;
@@ -54,12 +46,10 @@
     transition: color .2s ease, border-color .2s ease;
   }
   a:hover { color: var(--accent); border-bottom-color: var(--accent-soft); }
-
   /* Layout */
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
   section { padding-block: clamp(3.5rem, 8vh, 6rem); }
   hr.rule { border: 0; height: 1px; background: var(--rule); margin-block: 0; }
-
   /* Navigation — sparse, editorial */
   nav.top {
     padding: 1.5rem 0;
@@ -102,7 +92,6 @@
   @media (max-width: 600px) {
     nav.top ul { display: none; }
   }
-
   /* Hero */
   .hero { padding-top: clamp(3rem, 9vh, 6rem); padding-bottom: clamp(4rem, 10vh, 7rem); }
   .hero .grid {
@@ -134,7 +123,7 @@
   .hero .tag {
     font-size: 1.125rem;
     color: var(--ink-soft);
-    max-width: 38ch;
+    max-width: 42ch;
     font-weight: 400;
   }
   .hero .meta {
@@ -153,7 +142,6 @@
   }
   .hero .meta .value { color: var(--ink); font-weight: 500; }
   .hero .meta .row { display: flex; flex-direction: column; }
-
   /* About */
   .about .body {
     font-family: var(--serif);
@@ -203,7 +191,6 @@
     color: var(--ink-muted);
     font-size: 0.9rem;
   }
-
   /* Featured project */
   .featured {
     display: grid;
@@ -301,7 +288,6 @@
   .featured .links a:hover .arrow {
     transform: translateX(2px);
   }
-
   /* Other projects grid */
   .projects-grid {
     display: grid;
@@ -366,7 +352,6 @@
     gap: 1rem;
     font-size: 0.875rem;
   }
-
   /* Experience section */
   .experience .item {
     display: grid;
@@ -408,7 +393,6 @@
     line-height: 1.6;
     max-width: 62ch;
   }
-
   /* Contact */
   .contact {
     padding-block: clamp(4rem, 10vh, 8rem);
@@ -445,7 +429,6 @@
   }
   .contact .links a { color: inherit; border-bottom-color: var(--rule); }
   .contact .links a:hover { color: var(--accent); }
-
   /* Footer */
   footer.colophon {
     padding: 2rem 0 3rem;
@@ -456,7 +439,6 @@
     justify-content: space-between;
     gap: 1rem;
   }
-
   /* Entrance animation */
   @keyframes rise {
     from { opacity: 0; transform: translateY(12px); }
@@ -467,12 +449,10 @@
   .rise-2 { animation-delay: 0.18s; }
   .rise-3 { animation-delay: 0.31s; }
   .rise-4 { animation-delay: 0.44s; }
-
   @media (prefers-reduced-motion: reduce) {
     .rise { animation: none; }
     html { scroll-behavior: auto; }
   }
-
   /* Focus states for accessibility */
   a:focus-visible, button:focus-visible {
     outline: 2px solid var(--accent);
@@ -482,7 +462,6 @@
 </style>
 </head>
 <body>
-
 <nav class="top" id="topnav">
   <div class="inner">
     <a href="#" class="mark">Jordi&nbsp;Fabregat</a>
@@ -493,7 +472,6 @@
     </ul>
   </div>
 </nav>
-
 <header class="hero wrap">
   <div class="grid">
     <div>
@@ -502,7 +480,7 @@
         with <span class="alt">intent.</span>
       </h1>
       <p class="tag rise rise-2">
-        Gameplay programmer and technical designer based in Barcelona. Unity, C#, and systems that make the design of a thing legible in how the player actually plays it.
+        Gameplay programmer and technical designer based in Barcelona. I build games in Unity (C#) and C++ &mdash; gameplay systems, interaction, shaders, and the code that makes a design legible in how the player actually plays it.
       </p>
     </div>
     <aside class="meta rise rise-3">
@@ -516,7 +494,7 @@
       </div>
       <div class="row">
         <span class="label">Open to</span>
-        <span class="value">Junior roles, remote or relocation</span>
+        <span class="value">Gameplay programming &amp; design roles &mdash; remote or relocation</span>
       </div>
       <div class="row" style="margin-top: 0.5rem;">
         <a href="Jordi_Fabregat_CV.pdf" download>Download CV →</a>
@@ -524,45 +502,41 @@
     </aside>
   </div>
 </header>
-
 <hr class="rule">
-
 <section class="about wrap" id="about">
   <div class="grid">
     <div>
       <p class="section-head eyebrow">About</p>
-      <p class="body">I care about games where the design is doing real work, where systems, story, and feel are all pulling in the same direction. From narrative walking sims to cooperative mixed-reality to the large-scale work of studios I've looked up to since I was a teenager, that's the craft I want to grow into.</p>
+      <p class="body">I build games where the design is doing real work &mdash; where systems, story, and feel all pull in the same direction. I like owning a mechanic from the idea to the code that ships it, and I learn engines fast.</p>
     </div>
     <div class="detail">
-      <p>Final-year Computer Science student at Universitat Pompeu Fabra, specialising in Video Game Development and Interaction. Three shipped Unity/C# game projects across narrative, mixed-reality, and engine-development contexts.</p>
-      <p>Worked as a research assistant at UPF's Full-Body Interaction Lab under Prof. Narcís Parés, contributing to published mixed-reality games used in HCI studies with neurodivergent children.</p>
-      <p>Looking for a junior role in gameplay programming or technical design where I can contribute to production and grow toward design leadership.</p>
+      <p>Gameplay programmer and technical designer, and a final-year Computer Engineering student at Universitat Pompeu Fabra specialising in Video Game Development and Interaction. I work across the stack &mdash; high-level Unity/C# gameplay and low-level C++ engine subsystems &mdash; with three complete game projects spanning narrative, mixed-reality, and engine development.</p>
+      <p>I currently engineer mixed-reality Unity systems as a research assistant at UPF's Full-Body Interaction Lab under Prof. Narc&iacute;s Par&eacute;s, contributing to published HCI studies with neurodivergent children.</p>
+      <p>Looking for a junior role in gameplay programming or technical design where I can ship production code and grow toward design leadership.</p>
     </div>
   </div>
 </section>
-
 <hr class="rule">
-
 <section class="wrap" id="work">
   <div class="section-head">
     <span class="eyebrow">Selected Work</span>
     <span class="count"><em>three projects</em></span>
   </div>
-
   <!-- Featured: Alphinland -->
   <article class="featured">
     <div class="visual">
-      <img src="images/alphinland-hero.jpg" alt="Alphinland — Constance's house interior">
+      <img src="images/alphinland-hero.jpg" alt="Alphinland — interior of Constance's house, rendered in Unity">
     </div>
     <div class="copy">
       <p class="subhead">Featured · Solo project · 2026</p>
       <h3>Alphinland</h3>
-      <p class="desc">A first-person narrative walking sim about grief, memory, and the worlds we build to survive them. Built solo in Unity over one month, inspired by Margaret Atwood's short story. Features a three-tier interaction system inspired by Resident Evil, a dual-world transition with a custom shader, and a diegetic grief meter that gates story progression without HUD explanation.</p>
+      <p class="desc">A first-person narrative walking sim about grief, memory, and the worlds we build to survive them. Built solo in Unity over one month, inspired by Margaret Atwood's short story. I architected and scripted every gameplay system in C#: a three-tier interaction system inspired by Resident Evil, a dual-world transition driven by a custom shader, and a diegetic grief meter that gates story progression without any HUD explanation.</p>
       <div class="tags">
         <span>Unity</span>
         <span>C#</span>
-        <span>Narrative design</span>
+        <span>Gameplay systems</span>
         <span>Custom shader</span>
+        <span>Narrative design</span>
         <span>Vertical slice</span>
       </div>
       <div class="links">
@@ -572,62 +546,53 @@
       </div>
     </div>
   </article>
-
   <!-- Secondary projects grid -->
   <div class="projects-grid" style="margin-top: 5rem;">
-
     <article class="project-card">
       <div class="visual">
-        <img src="images/dual-forts.jpg" alt="Alphinland — Constance's house interior">
+        <img src="images/dual-forts.jpg" alt="Dual Forts — projected mixed-reality tower-defense playspace">
       </div>
       <h4>Dual Forts</h4>
       <p class="meta">Team · Mixed Reality · 2025</p>
-      <p class="blurb">Cooperative tower defense for a 6×6 m projected mixed-reality playspace with HTC Vive trackers. Resource gathering is mechanically impossible alone — both players must act simultaneously. Led the balancing pass across multiple playtests; this project led to my subsequent research role at UPF's Full-Body Interaction Lab.</p>
+      <p class="blurb">Cooperative tower defense for a 6×6 m projected mixed-reality playspace with HTC Vive trackers. I coded a forced-cooperation resource mechanic &mdash; gathering is mechanically impossible alone, so both players must act simultaneously &mdash; plus the wave-spawning and tower systems, and led the balancing pass across multiple playtests. This project led to my research role at UPF's Full-Body Interaction Lab.</p>
       <div class="links">
         <a href="https://realsria.itch.io/dual-forts">Project page →</a>
       </div>
     </article>
-
     <article class="project-card">
       <div class="visual">
-        <img src="images/device-bound.jpg" alt="Alphinland — Constance's house interior">
+        <img src="images/device-bound.jpg" alt="Device Bound — first-person puzzle-platformer built on a C++ engine">
       </div>
       <h4>Device Bound</h4>
       <p class="meta">Solo · C++ · 2025</p>
-      <p class="blurb">A first-person puzzle-platformer built solo on a partial C++ engine framework. Throw a ball, teleport to where it lands; save and rewind your position for experimentation. Completed renderer and culling systems on top of the course-provided engine. Published on the course page as an exemplar for later years.</p>
+      <p class="blurb">A first-person puzzle-platformer built solo on a partial C++ engine framework. Throw a ball, teleport to where it lands; save and rewind your position for experimentation. I completed the renderer and culling systems on top of the course-provided engine and built the full game on top. Published on the course page as an exemplar for later years.</p>
       <div class="links">
         <a href="https://realsria.itch.io/device-bound">Project page →</a>
       </div>
     </article>
-
   </div>
 </section>
-
 <hr class="rule">
-
 <section class="wrap experience" id="experience">
   <div class="section-head">
     <span class="eyebrow">Experience</span>
   </div>
-
   <div class="item">
     <div class="date">Sep 2025 – Feb 2026</div>
     <div>
-      <h4>Research &amp; Development Assistant</h4>
+      <h4>Gameplay Programmer &middot; R&amp;D Assistant</h4>
       <p class="sub">Full-Body Interaction Lab · Universitat Pompeu Fabra</p>
-      <p class="desc">Mixed-reality Unity development for HCI research with neurodivergent children, under Prof. Narcís Parés. Rebuilt and iterated on the Unity codebase for <em>DragonIce</em> and <em>Lands of Fog</em> — full-body mixed-reality experiences projected onto a 6×6 m floor playspace with HTC Vive trackers. Resolved stability and logging issues that enabled the research team to recover clean behavioural data from play sessions.</p>
+      <p class="desc">Mixed-reality Unity development for HCI research with neurodivergent children, under Prof. Narcís Parés. Rebuilt and extended the Unity codebase for <em>DragonIce</em> and <em>Lands of Fog</em> — full-body mixed-reality experiences projected onto a 6×6 m floor playspace with HTC Vive trackers. Eliminated stability and logging issues that enabled the research team to recover clean behavioural data from play sessions.</p>
     </div>
   </div>
-
   <div class="item">
     <div class="date">2022 – Jun 2026</div>
     <div>
-      <h4>BSc Computer Science</h4>
+      <h4>BSc Computer Engineering</h4>
       <p class="sub">Universitat Pompeu Fabra — Specialisation: Video Game Development &amp; Interaction</p>
       <p class="desc">Game-related coursework: Video Game Engine Development, Interactive Systems, Human-Computer Interaction, Narrative &amp; Videogames.</p>
     </div>
   </div>
-
   <div class="item">
     <div class="date">Sep 2022 · 2023 · 2024</div>
     <div>
@@ -637,7 +602,6 @@
     </div>
   </div>
 </section>
-
 <section class="contact wrap" id="contact">
   <h2><em>Contact.</em></h2>
   <a class="cta" href="mailto:jordifabregat57@gmail.com">jordifabregat57@gmail.com →</a>
@@ -648,12 +612,10 @@
     <a href="Jordi_Fabregat_CV.pdf" download>CV (PDF)</a>
   </div>
 </section>
-
 <footer class="colophon wrap">
   <span>© 2026 Jordi Fabregat</span>
   <span>Built in plain HTML/CSS · hosted on GitHub Pages</span>
 </footer>
-
 <script>
   // Sticky nav subtle border on scroll
   const nav = document.getElementById('topnav');
@@ -664,6 +626,5 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 </script>
-
 </body>
 </html>
