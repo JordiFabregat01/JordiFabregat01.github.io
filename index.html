@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jordi Fabregat — Gameplay Programmer & Technical Designer</title>
-<meta name="description" content="Gameplay programmer and technical designer in Barcelona. I build the systems, the scares, and the code underneath — in Unreal and Unity. Currently making the horror game Do Not Follow.">
+<meta name="description" content="Gameplay programmer and technical designer in Barcelona. I build the systems, the scares, and the code underneath — in Unreal and Unity. Currently making the horror game Do Not Follow and running Axiom Battle Arena, a live competitive math game.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
@@ -511,7 +511,7 @@
     </div>
     <div class="detail">
       <p>I'm a gameplay programmer and technical designer, fresh out of a Computer Engineering degree at UPF (Video Game Development &amp; Interaction). I work across the whole stack &mdash; Unreal and C++, Unity and C# &mdash; and I'm as happy writing an AI perception system as I am tuning exactly how a door should sound when it slams shut behind you.</p>
-      <p>Right now I'm six months into <em>Do Not Follow</em>, a first-person horror game I'm building solo in Unreal Engine 5: slow dread, a house full of things that don't quite add up, and a stalker you can't trust your own ears around. Before that I made <em>Alphinland</em>, a quiet game about grief, and a co-op mixed-reality game that landed me a research role at UPF's Full-Body Interaction Lab.</p>
+      <p>Right now I'm six months into <em>Do Not Follow</em>, a first-person horror game I'm building solo in Unreal Engine 5: slow dread, a house full of things that don't quite add up, and a stalker you can't trust your own ears around. Before that I made <em>Alphinland</em>, a quiet game about grief, and a co-op mixed-reality game that landed me a research role at UPF's Full-Body Interaction Lab. This September I also launched <a href="https://axiombattlearena.com"><em>Axiom Battle Arena</em></a>, a competitive math game with real-time multiplayer over an authoritative server, and it's live right now.</p>
       <p>I learn engines fast and I finish what I start. I'm looking for a junior gameplay programming or technical design role &mdash; remote, or I'll move for the right team.</p>
     </div>
   </div>
@@ -520,34 +520,61 @@
 <section class="wrap" id="work">
   <div class="section-head">
     <span class="eyebrow">Selected Work</span>
-    <span class="count"><em>three projects</em></span>
+    <span class="count"><em>six projects</em></span>
   </div>
-  <!-- Featured: Alphinland -->
+  <!-- Featured: Axiom Battle Arena -->
   <article class="featured">
     <div class="visual">
-      <img src="images/alphinland-hero.jpg" alt="Alphinland — interior of Constance's house, rendered in Unity">
+      <a href="https://axiombattlearena.com" style="border: 0; display: block; height: 100%;"><img src="images/axiom-arena.jpg" alt="Axiom Battle Arena — home screen: sixty seconds, one opponent, every answer counts"></a>
     </div>
     <div class="copy">
-      <p class="subhead">Featured · Solo project · 2026</p>
-      <h3>Alphinland</h3>
-      <p class="desc">A first-person narrative walking sim about grief, memory, and the worlds we build to survive them. Built solo in Unity over one month, inspired by Margaret Atwood's short story. I architected and scripted every gameplay system in C#: a three-tier interaction system inspired by Resident Evil, a dual-world transition driven by a custom shader, and a diegetic grief meter that gates story progression without any HUD explanation.</p>
+      <p class="subhead">Featured · Solo project · Live · 2026</p>
+      <h3>Axiom Battle Arena</h3>
+      <p class="desc">A competitive math game you can play right now: sixty-second one-on-one duels, seven levels from first sums to number theory, one ranked Elo ladder where everyone starts at 1000, seasons, a story mode of exam-style problems, and collectible cards with their exact pull odds printed on them. I built the whole thing, client and server. An authoritative game server generates the questions, keeps the clock, scores every answer and settles ratings, so results can't be forged; one shared rules module runs on both ends, and the CI suite plays full duels against the server and tries to cheat it.</p>
       <div class="tags">
-        <span>Unity</span>
-        <span>C#</span>
-        <span>Gameplay systems</span>
-        <span>Custom shader</span>
-        <span>Narrative design</span>
-        <span>Vertical slice</span>
+        <span>TypeScript</span>
+        <span>React</span>
+        <span>Node.js · WebSockets</span>
+        <span>PostgreSQL · Supabase</span>
+        <span>Multiplayer systems</span>
+        <span>Live product</span>
       </div>
       <div class="links">
-        <a href="https://realsria.itch.io/alphinland"><span>Play on itch.io</span><span class="arrow">→</span></a>
-        <a href="https://github.com/JordiFabregat01/Alphinland"><span>Source & docs</span><span class="arrow">→</span></a>
-        <a href="https://github.com/JordiFabregat01/Alphinland/blob/main/docs/Alphinland_Design_Summary.pdf"><span>Design summary</span><span class="arrow">→</span></a>
+        <a href="https://axiombattlearena.com"><span>Play at axiombattlearena.com</span><span class="arrow">→</span></a>
       </div>
     </div>
   </article>
   <!-- Secondary projects grid -->
   <div class="projects-grid" style="margin-top: 5rem;">
+    <article class="project-card">
+      <div class="visual">
+        <div class="placeholder">Do Not Follow — in development, footage coming soon</div>
+      </div>
+      <h4>Do Not Follow</h4>
+      <p class="meta">Solo · Unreal Engine 5 · C++ · 2026 – present</p>
+      <p class="blurb">A first-person investigation horror game built solo in UE5. Slow dread over chase: explorable hubs joined by channelled connectors, a stalker on sight-and-hearing AI perception tuned so safe and dangerous spaces stay distinct, and a mechanic set written in C++ — tiered environmental-storytelling lore, a symbol-warding puzzle, a fuse-for-darkness risk/reward trade-off, AI-summoning "lullaby" zones and a possession-climax door duel. Vertical slice of all mechanics complete.</p>
+    </article>
+    <article class="project-card">
+      <div class="visual">
+        <div class="placeholder">Co-op heist — pre-production, concept art coming soon</div>
+      </div>
+      <h4>Untitled Co-op Heist</h4>
+      <p class="meta">Solo · 4-player online co-op · Pre-production · 2026</p>
+      <p class="blurb">Four small animals (a raccoon leads the line-up) break into guarded warehouses to steal whatever is worth the most. Everyone competes to be the friend with the biggest haul, but the crew only moves on if it reaches a shared minimum cut, then spends it on upgrades between jobs. Shoving your friends is in; buyable ways to troll them are planned.</p>
+    </article>
+    <article class="project-card">
+      <div class="visual">
+        <img src="images/alphinland-hero.jpg" alt="Alphinland — interior of Constance's house, rendered in Unity">
+      </div>
+      <h4>Alphinland</h4>
+      <p class="meta">Solo · Unity · C# · 2026</p>
+      <p class="blurb">A first-person narrative walking sim about grief, memory, and the worlds we build to survive them. Built solo in Unity over one month, inspired by Margaret Atwood's short story. I architected and scripted every gameplay system in C#: a three-tier interaction system inspired by Resident Evil, a dual-world transition driven by a custom shader, and a diegetic grief meter that gates story progression without any HUD explanation.</p>
+      <div class="links">
+        <a href="https://realsria.itch.io/alphinland">Play on itch.io →</a>
+        <a href="https://github.com/JordiFabregat01/Alphinland">Source &amp; docs →</a>
+        <a href="https://github.com/JordiFabregat01/Alphinland/blob/main/docs/Alphinland_Design_Summary.pdf">Design summary →</a>
+      </div>
+    </article>
     <article class="project-card">
       <div class="visual">
         <img src="images/dual-forts.jpg" alt="Dual Forts — projected mixed-reality tower-defense playspace">
